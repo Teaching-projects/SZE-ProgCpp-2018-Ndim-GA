@@ -9,6 +9,7 @@
 #define ACKLEY_A 20
 #define ACKLEY_B 0.2
 #define ACKLEY_C MPI*2
+#define RASTRIGIN_A 20
 
 using namespace std;
 
@@ -16,5 +17,8 @@ class TestFunctions
 {
 public:
 	static double AckleyFunction(vector<double> points);
+	static double SchwefelFunction(vector<double> points);
+	static double RastriginsFunction(vector<double> points);
+	static double DoubleDipFunction(vector<double> points);
 private:
 };

@@ -8,12 +8,13 @@
 class NDim_GA 
 {
 public:
-	NDim_GA(int dimension, int populationSize, int generationSize, int crossoverMax);
+	NDim_GA(int dimension, int populationSize, int generationSize, int crossoverMax, int testFunctionId);
 private:
 	int dim;
 	int popsize;
 	int generation;
 	int crossover;
+	int testFunction;
 
 	void simulate();
 	void populationInit(vector < Chromosome> &population);
@@ -22,5 +23,6 @@ private:
 	void wheelInit(vector<Chromosome> population, vector<Wheel> &w);
 	double randomFloatNM(double xmin, double xmax);
 	vector<Chromosome> selection(double rouletteminval, double roulettemaxval, vector<Chromosome> population, vector<Wheel> w);
+	void selectingSurvivors(double rouletteminval, double roulettemaxval, vector<Chromosome> population, vector<Wheel> w, vector<Chromosome> &popbuff);
 	Chromosome single_point(Chromosome parent1, Chromosome parent2);
 };
