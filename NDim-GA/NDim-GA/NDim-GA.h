@@ -14,7 +14,8 @@ private:
 	void wheelInit(vector<Chromosome> population, vector<Wheel> &w);
 	vector<Chromosome> selection(double rouletteminval, double roulettemaxval, vector<Chromosome> population, vector<Wheel> w);
 	void selectingSurvivors(double rouletteminval, double roulettemaxval, vector<Chromosome> population, vector<Wheel> w, vector<Chromosome> &popbuff);
-	
+	void mutation(vector<Chromosome> &popbuff);
+
 	Chromosome doCrossover(Chromosome parent1, Chromosome parent2);
 	Chromosome single_point(Chromosome parent1, Chromosome parent2);
 	Chromosome two_point(Chromosome parent1, Chromosome parent2);
