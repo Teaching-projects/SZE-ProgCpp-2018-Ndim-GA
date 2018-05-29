@@ -17,10 +17,28 @@ void NDimBeA::simulate() {
 	{
 		for (int j = 0; j < populationSize; j++)
 		{
-			population[j] = bacterialMutation(population[j]);
+			vector<int> shuffle(dimension);
+			for (int i = 0; i < dimension; i++)
+			{
+				shuffle[i] = i;
+			}
+			for (int i = 0; i < dimension; i++)
+			{
+				int rand = randomFloatNM(0, dimension - 1);
+				int tmp = shuffle[i];
+				shuffle[i] = shuffle[rand];
+				shuffle[rand] = tmp;
+			}
+			population[j] = bacterialMutation(population[j], shuffle);
 		}
 		sort(population.begin(), population.end());
 		bacterialInfection(population);
+		sort(population.begin(), population.end());
+		for (int i = 0; i < populationSize; i++)
+		{
+			printf("fitness: %f\n", population[i].getFitness());
+		}
+		printf("\n\n");
 	}
 	sort(population.begin(), population.end());
 	for (int i = 0; i < populationSize; i++)
@@ -28,23 +46,13 @@ void NDimBeA::simulate() {
 		printf("fitness: %f\n", population[i].getFitness());
 	}
 }
-Chromosome NDimBeA::bacterialMutation(Chromosome p) {
-	vector<int> shuffle(dimension);
+Chromosome NDimBeA::bacterialMutation(Chromosome p, vector<int> shuffle) {
+	
 	Chromosome original = p;
+
 	for (int i = 0; i < dimension; i++)
 	{
-		shuffle[i] = i;
-	}
-	for (int i = 0; i < dimension; i++)
-	{
-		int rand = randomFloatNM(0, dimension - 1);
-		int tmp = shuffle[i];
-		shuffle[i] = shuffle[rand];
-		shuffle[rand] = tmp;
-	}
-	for (int i = 0; i < dimension; i++)
-	{
-		for (int j = 0; j < infection; j++)
+		for (int j = 0; j < nclone; j++)
 		{
 			p.setCoordinateById(shuffle[i], randomFloatNM(minimum, maximum));
 			double tmpFitness = getFitness(p.getCoordinate());

@@ -10,7 +10,7 @@ private:
 	int infection;
 
 	void simulate();
-	Chromosome bacterialMutation(Chromosome p);
+	Chromosome bacterialMutation(Chromosome p, vector<int> shuffle);
 	void bacterialInfection(vector<Chromosome> &p);
 };
 
