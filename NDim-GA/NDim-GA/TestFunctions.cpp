@@ -64,18 +64,3 @@ double TestFunctions::RastriginsFunction(vector<double> points)
 	return (RASTRIGIN_A*points.size()) + fitness;
 }
 
-/**
-*	Dimension: d
-*	The function has a (minimum) solution of f = -0.42888194248 at x = -0.707107 (negative square root of 2, divided by 2), and y = 0.0.
-*	xi ? [-2.0, 2.0], for all i = 1, …, d.
-*	source: https://jamesmccaffrey.wordpress.com/2013/12/16/graphing-the-3d-double-dip-function/
-*	@param points is an N dimension point
-*/
-double TestFunctions::DoubleDipFunction(vector<double> points) {
-	double tmp = 0;
-	for (vector<double>::iterator it = points.begin(); it != points.end(); it++)
-	{
-		tmp = tmp + pow(*it, 2.0);
-	}
-	return tmp * exp(-1 * tmp);
-}

@@ -19,6 +19,5 @@ public:
 	static double AckleyFunction(vector<double> points);
 	static double SchwefelFunction(vector<double> points);
 	static double RastriginsFunction(vector<double> points);
-	static double DoubleDipFunction(vector<double> points);
 private:
 };

@@ -23,7 +23,7 @@
     <ProjectGuid>{709608C4-E452-46B0-9A2A-965D7B62F061}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>NDimGA</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -148,7 +148,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h" />
+    <ClInclude Include="EvoAlgs.h" />
     <ClInclude Include="NDim-GA.h" />
+    <ClInclude Include="NDimBeA.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestFunctions.h" />
@@ -156,7 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chromosome.cpp" />
+    <ClCompile Include="EvoAlgs.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="NDim-GA.cpp" />
+    <ClCompile Include="NDimBeA.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
