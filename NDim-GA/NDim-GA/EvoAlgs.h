@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include <vector>
+#include <ctime>
 #include <algorithm>
 #include "Chromosome.h"
 #include "TestFunctions.h"

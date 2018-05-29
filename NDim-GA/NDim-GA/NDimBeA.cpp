@@ -19,8 +19,10 @@ void NDimBeA::simulate() {
 		{
 			population[j] = bacterialMutation(population[j]);
 		}
+		sort(population.begin(), population.end());
 		bacterialInfection(population);
 	}
+	sort(population.begin(), population.end());
 	for (int i = 0; i < populationSize; i++)
 	{
 		printf("fitness: %f\n", population[i].getFitness());
@@ -44,7 +46,7 @@ Chromosome NDimBeA::bacterialMutation(Chromosome p) {
 	{
 		for (int j = 0; j < infection; j++)
 		{
-			p.getCoordinate()[shuffle[i]] = randomFloatNM(minimum, maximum);
+			p.setCoordinateById(shuffle[i], randomFloatNM(minimum, maximum));
 			double tmpFitness = getFitness(p.getCoordinate());
 			if (p.getFitness() > tmpFitness) {
 				original = Chromosome(p.getCoordinate(), tmpFitness);
@@ -56,10 +58,10 @@ Chromosome NDimBeA::bacterialMutation(Chromosome p) {
 void NDimBeA::bacterialInfection(vector<Chromosome> &p) {
 	for (int i = 0; i < infection; i++)
 	{
-		Chromosome good = p[round(randomFloatNM(0, populationSize / 2))];
+		Chromosome good = p[round(randomFloatNM(populationSize / 2, populationSize-1))];
 		int selectedPart = round(randomFloatNM(0, dimension - 1));
-		int bad = round(randomFloatNM(populationSize / 2, populationSize));
-		p[bad].getCoordinate()[selectedPart] = good.getCoordinate()[selectedPart];
+		int bad = round(randomFloatNM(0, populationSize / 2));
+		p[bad].setCoordinateById(selectedPart, good.getCoordinate()[selectedPart]);
 		p[bad].setFitness(getFitness(p[bad].getCoordinate()));
 	}
 }
