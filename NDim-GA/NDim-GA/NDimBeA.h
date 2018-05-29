@@ -3,7 +3,7 @@
 class NDimBeA : public EvoAlgs
 {
 public:
-	NDimBeA::NDimBeA(int dimension, int gen, int populationSize, int testF, int clones, int inf, double min, double max);
+	NDimBeA(int dimension, int gen, int populationSize, int testF, int clones, int inf, double min, double max);
 	~NDimBeA();
 private:
 	int nclone;
